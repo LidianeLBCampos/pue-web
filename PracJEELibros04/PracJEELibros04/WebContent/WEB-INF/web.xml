@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  
+  <display-name>PracJEELibros04</display-name>
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  
+   <servlet>
+  	<servlet-name>formNuevoLibro</servlet-name>
+  	<jsp-file>/WEB-INF/vistas/FormAltaLibro.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>formNuevoLibro</servlet-name>
+  	<url-pattern>/formAddBook</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>nuevoLibro</servlet-name>
+  	<jsp-file>/WEB-INF/vistas/InsertarLibro.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>nuevoLibro</servlet-name>
+  	<url-pattern>/addBook</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>mostrarLibros</servlet-name>
+  	<jsp-file>/WEB-INF/vistas/MostrarLibros.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>mostrarLibros</servlet-name>
+  	<url-pattern>/showBooks</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>editarLibro</servlet-name>
+  	<jsp-file>/WEB-INF/vistas/FormEdicionLibro.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>editarLibro</servlet-name>
+  	<url-pattern>/editBook</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>actualizarLibro</servlet-name>
+  	<jsp-file>/WEB-INF/vistas/ActualizarLibro.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>actualizarLibro</servlet-name>
+  	<url-pattern>/updateBook</url-pattern>
+  </servlet-mapping>  
+  
+  <servlet>
+  	<servlet-name>borrarLibro</servlet-name>
+  	<jsp-file>/WEB-INF/vistas/BorrarLibro.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>borrarLibro</servlet-name>
+  	<url-pattern>/deleteBook</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
