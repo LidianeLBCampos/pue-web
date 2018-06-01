@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>PracJEELibros08</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<context-param>
+		<param-name>log4jFileName</param-name>
+		<param-value>/WEB-INF/log4jConfig.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.pracjeelibros.StartupListener</listener-class>
+	</listener>
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/WEB-INF/vistas/Error.jsp</location>
+	</error-page>
+
+<!--  Esto no es necesario porque en el servlet usamos una anotacion -> @WebServlet("/ControladorLibros")
+	<servlet>
+		<servlet-name>controladorLibros</servlet-name>
+		<servlet-class>org.pracjeelibros.ControladorLibros</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ControladorLibros</servlet-name>
+		<url-pattern>/ControladorLibros</url-pattern>
+	</servlet-mapping>
+
+-->
+
+</web-app>
