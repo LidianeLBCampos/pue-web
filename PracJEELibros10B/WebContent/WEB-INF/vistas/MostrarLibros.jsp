@@ -49,7 +49,7 @@ th {
 
 		<c:set var="catRecibida" value="${param.categoria}"/>
 
-		<select onchange="refrescar('filterBooks.do', this)"
+		<select onchange="refrescar('filterBooks.do', this.value)"
 			class="form-control" name="categoria">
 			<option value="seleccionar">todas las categorías</option>
 
@@ -105,7 +105,7 @@ th {
 					<tr>
 						<td>${libro.isbn}</td>
 						<td>${libro.titulo}</td>
-						<td>${libro.categoria}</td>
+						<td><a style="color:black" href="#" onclick="refrescar('filterBooks.do','${libro.categoria}')">${libro.categoria}</a></td>
 						<td align="center"><a
 							href="formEditBook.do?isbn=${libro.isbn}"> <img
 								class="si-glyph" src="svg/si-glyph-edit.svg" />
@@ -134,7 +134,7 @@ th {
 		}
 
 		function refrescar(pagina, id) {
-			window.location.href = pagina + "?categoria=" + id.value
+			window.location.href = pagina + "?categoria=" + id
 		}
 	</script>
 
