@@ -1,17 +1,24 @@
 package org.pracjeelibros.model;
 
 import java.util.List;
-
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.pracjeelibros.DataBaseException;
 import org.pracjeelibros.HibernateHelper;
 
+@Entity
+@Table(name="libros")
 public class Libro {
 
+	@Id
 	private String isbn;
+	
 	private String titulo;
+	
 	private String categoria;
 
 	public Libro() {
@@ -56,7 +63,6 @@ public class Libro {
 		session.beginTransaction();
 		session.delete(this);
 		session.getTransaction().commit();
-
 	}
 
 	@SuppressWarnings("unchecked")
@@ -78,15 +84,13 @@ public class Libro {
 
 	@SuppressWarnings("unchecked")
 	public static List<Libro> buscarPorCategoria(String categoria) {
-		SessionFactory factoriaSession =
-		HibernateHelper.getSessionFactory();
+		SessionFactory factoriaSession = HibernateHelper.getSessionFactory();
 		Session session = factoriaSession.openSession();
 		Query consulta = session.createQuery("from Libro libro where libro.categoria=:categoria");
 		consulta.setString("categoria", categoria);
 		List<Libro> listaDeLibros = consulta.list();
 		session.close();
 		return listaDeLibros;
-
 	}
 
 	public String getIsbn() {
