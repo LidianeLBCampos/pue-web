@@ -3,7 +3,8 @@ package org.pracjeelibros.control.acciones;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.pracjeelibros.dao.LibroDao;
+import org.pracjeelibros.dao.jpa.EntityDaoJpaImpl;
+import org.pracjeelibros.dao.jpa.LibroDaoJpaImpl;
 
 public class AddBook extends NewOrUpdateAccion {
 
@@ -11,8 +12,8 @@ public class AddBook extends NewOrUpdateAccion {
 	public String ejecutar(HttpServletRequest request, HttpServletResponse response) {
 		validar(request);
 		
-		LibroDao libroDao = new LibroDao();
-		libroDao.insertar(libro);
+		dao= new LibroDaoJpaImpl();
+		dao.insertar(libro);
 
 		return "showBooks.do";
 	}

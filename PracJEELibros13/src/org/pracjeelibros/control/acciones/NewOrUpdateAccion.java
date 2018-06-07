@@ -3,13 +3,13 @@ package org.pracjeelibros.control.acciones;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.pracjeelibros.dao.LibroDao;
+import org.pracjeelibros.dao.EntityDao;
 import org.pracjeelibros.model.Libro;
 
 public abstract class NewOrUpdateAccion extends Accion {
 	
 	protected Libro libro;
-	protected LibroDao libroDao;
+	protected EntityDao<Libro, String> dao;
 
 	public void validar(HttpServletRequest request) {
 		String isbn = request.getParameter("isbn");

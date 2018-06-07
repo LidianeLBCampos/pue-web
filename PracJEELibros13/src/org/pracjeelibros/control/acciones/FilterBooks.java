@@ -6,8 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.pracjeelibros.dao.CategoriaDao;
-import org.pracjeelibros.dao.LibroDao;
+import org.pracjeelibros.dao.jpa.CategoriaDaoJpaImpl;
+import org.pracjeelibros.dao.jpa.LibroDaoJpaImpl;
 import org.pracjeelibros.model.Libro;
 
 public class FilterBooks extends Accion {
@@ -18,7 +18,7 @@ public class FilterBooks extends Accion {
 		int categoria = Integer.parseInt(request.getParameter("categoria"));
 		
 		if (categoria > 0) {
-			librosFiltrados = new LibroDao().buscarPorCategoria(categoria);
+			librosFiltrados = new LibroDaoJpaImpl().buscarPorIdCategoria(categoria);
 		}
 		request.setAttribute("filtrados", librosFiltrados);
 		return new ShowBooks().ejecutar(request, response);

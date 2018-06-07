@@ -6,7 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.pracjeelibros.dao.CategoriaDao;
+import org.pracjeelibros.dao.jpa.CategoriaDaoJpaImpl;
 
 @Entity
 @Table(name = "libros")
@@ -26,7 +26,7 @@ public class Libro {
 	public Libro(String isbn, String titulo, int categoria) {
 		this.isbn = isbn;
 		this.titulo = titulo;
-		this.categoria = new CategoriaDao().buscarById(categoria);
+		this.categoria = new CategoriaDaoJpaImpl().buscarPorClave(categoria);
 	}
 
 	
